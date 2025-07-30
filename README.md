@@ -2,18 +2,12 @@
 
 ## Lecture
 
-NO VIDEO ON YOUTUBE CURRENTLY
-[![# Null Coalescing Operator)](https://img.youtube.com/vi/v1dbW26xRQQ/0.jpg)](https://www.youtube.com/watch?v=v1dbW26xRQQ)
+[![# Generic Type Constraint)](https://img.youtube.com/vi/730oY-Wxjpk/0.jpg)](https://www.youtube.com/watch?v=730oY-Wxjpk)
 
 ## Instructions
 
-- In `HomeEnergyApi/Models/IUserRepository.cs`
-  - Create a new default interface method on `IUserRepository` named `UserIsAdmin()` with a return type of `bool` and taking one argument of type `string`
-    - `UserIsAdmin()` should return true if the provided string is equal to `"Admin"` or false otherwise
-- In `HomeEnergyApi/Controllers/AuthenticationControllerV2.cs`
-  - Modify the `Register()` method so that...
-    - `Ok("Admin registered successfully.")` is returned in the case of `userRepository.UserIsAdmin()` returns true with the user's `Role` as the passed argument
-    - `Ok("User is registered successfully.")` is returned otherwise
+- In `HomeEnergyApi/Models/IWriteRepository`
+  - Add the Generic Type Constraint of `INumber` for `TId` on the interface `IWriteRepository`
 
 ## Additional Information
 

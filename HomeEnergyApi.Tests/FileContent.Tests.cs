@@ -3,9 +3,11 @@ public class FileTests
     private static string programFilePath = @"../../../../HomeEnergyApi/Program.cs";
     private static string homeDtoFilePath = @"../../../../HomeEnergyApi/Dtos/HomeDto.cs";
     private static string fileContentTestsPath = @"../../../../HomeEnergyApi/Services/ZipCodeLocationService.cs";
+    private static string IWriteRepositoryFilePath = @"../../../../HomeEnergyApi/Models/IWriteRepository.cs";
     private string programContent = File.ReadAllText(programFilePath);
     private string homeDtoContent = File.ReadAllText(homeDtoFilePath);
     private string zipCodeLocationServiceContent = File.ReadAllText(fileContentTestsPath);
+    private string IWriteRepositoryContent = File.ReadAllText(IWriteRepositoryFilePath);
 
     [Fact]
     public void DoesProgramFileAddScopedServiceHomeRepository()
@@ -157,5 +159,13 @@ public class FileTests
         bool containsAsParallel = zipCodeLocationServiceContent.Contains(".AsParallel()");
         Assert.True(containsAsParallel,
             "HomeEnergyApi/Services/ZipCodeLocationService.cs does not execute the LINQ query using AsParallel()");
+    }
+
+    [Fact]
+    public void DoesIWriteRepositoryUseINumberGenericTypeConstraint()
+    {
+        bool containsINumberConstraint = IWriteRepositoryContent.Contains("where TId : INumber<TId>");
+        Assert.True(containsINumberConstraint,
+            "HomeEnergyApi/Models/IWriteRepository.cs does not use the INumber<TId> generic type constraint");
     }
 }

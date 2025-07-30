@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace HomeEnergyApi.Models
 {
     public interface IWriteRepository<TId, T>
